@@ -34,7 +34,9 @@ services:
     command: ["npm", "run", "dev", "--", "--host"]
 
   backend:
-    image: mcr.microsoft.com/dotnet/sdk:8.0
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
     working_dir: /src
     ports:
       - "8080:8080"
@@ -51,6 +53,5 @@ services:
     depends_on:
       database:
         condition: service_healthy
-    command: ["dotnet", "watch", "run", "--non-interactive"]
 volumes:
   pgdata:
