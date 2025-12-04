@@ -1,4 +1,4 @@
-namespace backend
+namespace Media_Backend
 {
     public class WeatherForecast
     {

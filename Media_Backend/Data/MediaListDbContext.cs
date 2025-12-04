@@ -36,5 +36,5 @@ namespace backend.Data
             base.OnModelCreating(modelBuilder);
 
         }
-    }
+    }   
 }

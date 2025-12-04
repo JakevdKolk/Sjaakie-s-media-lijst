@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 
-namespace backend.Controllers
+namespace Media_Backend.Controllers
 {
     [ApiController]
     [Route("[controller]")]
@@ -8,7 +8,7 @@ namespace backend.Controllers
     {
         private static readonly string[] Summaries = new[]
         {
-            "deep freezeeeeeee"
+            "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
         };
 
         private readonly ILogger<WeatherForecastController> _logger;

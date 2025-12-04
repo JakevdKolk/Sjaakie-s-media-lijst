@@ -34,24 +34,22 @@ services:
     command: ["npm", "run", "dev", "--", "--host"]
 
   backend:
-    build:
-      context: ./backend
-      dockerfile: Dockerfile
+    image: mcr.microsoft.com/dotnet/sdk:8.0
     working_dir: /src
     ports:
       - "8080:8080"
     environment:
       ASPNETCORE_ENVIRONMENT: Development
-      URLS: http://+:8080
       ASPNETCORE_URLS: http://+:8080
+      ULRS: http://+:8080
       DOTNET_USE_POLLING_FILE_WATCHER: "1"
       DOTNET_WATCH_SUPPRESS_LAUNCH_BROWSER: "1"
     volumes:
       - ./backend:/src
-      - /src/bin
-      - /src/obj
     depends_on:
       database:
         condition: service_healthy
+    command: ["dotnet", "watch", "run"]
+
 volumes:
   pgdata:
