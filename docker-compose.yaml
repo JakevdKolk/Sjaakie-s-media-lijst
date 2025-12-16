@@ -45,11 +45,10 @@ services:
       DOTNET_USE_POLLING_FILE_WATCHER: "1"
       DOTNET_WATCH_SUPPRESS_LAUNCH_BROWSER: "1"
     volumes:
-      - ./backend:/src
+      - ./backend:/Media_Backend
     depends_on:
       database:
         condition: service_healthy
-    command: ["dotnet", "watch", "run"]
 
 volumes:
   pgdata:

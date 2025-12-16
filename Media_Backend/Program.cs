@@ -1,4 +1,6 @@
+using Autofac;
 using Autofac.Extensions.DependencyInjection;
+using Media_Backend.Autofac;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -8,12 +10,16 @@ builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory());
 
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 
-LoggerFactory logger = new LoggerFactory();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+builder.Host.ConfigureContainer<ContainerBuilder>(containerBuilder =>
+{
+    containerBuilder.RegisterModule(new AutomapperModule());
+});
 
 var app = builder.Build();
 
