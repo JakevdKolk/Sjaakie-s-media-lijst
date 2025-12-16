@@ -7,9 +7,9 @@ namespace backend.Models
         [Key]
         public int Id { get; set; }
         [Required]
-        public string Username { get; set; }
+        public required string Username { get; set; }
         [Required]
-        public string Email { get; set; }
+        public required string Email { get; set; }
         public int RoleId { get; set; }
 
         public DateTime CreatedAt { get; set; }
