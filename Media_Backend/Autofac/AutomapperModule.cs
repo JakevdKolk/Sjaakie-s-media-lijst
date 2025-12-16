@@ -12,6 +12,8 @@ namespace Media_Backend.Autofac
                    .Where(t => t.IsSubclassOf(typeof(Profile)))
                    .As<Profile>()
                    .SingleInstance();
+
+
         }
     }
 }
