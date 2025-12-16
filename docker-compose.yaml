@@ -35,21 +35,20 @@ services:
 
   backend:
     image: mcr.microsoft.com/dotnet/sdk:8.0
-    working_dir: /src
+    working_dir: /Media_Backend
     ports:
       - "8080:8080"
     environment:
       ASPNETCORE_ENVIRONMENT: Development
       ASPNETCORE_URLS: http://+:8080
-      ULRS: http://+:8080
       DOTNET_USE_POLLING_FILE_WATCHER: "1"
       DOTNET_WATCH_SUPPRESS_LAUNCH_BROWSER: "1"
     volumes:
-      - ./Media_Backend:/src
+      - ./Media_Backend:/Media_Backend
     depends_on:
       database:
         condition: service_healthy
-    command: ["dotnet", "watch", "run"]
+    command: ["dotnet", "watch", "run", "--no-launch-profile"]
 
 volumes:
   pgdata:
