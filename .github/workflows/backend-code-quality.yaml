@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: ./Media_backend
+        working-directory: ./Media_Backend
 
     steps:
       - name: Checkout repository
