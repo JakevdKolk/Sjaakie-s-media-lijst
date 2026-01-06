@@ -29,6 +29,32 @@ namespace backend.Data.EntityTypeConfig
                 .WithOne(ulm => ulm.User)
                 .HasForeignKey(ulm => ulm.UserId)
                 .OnDelete(DeleteBehavior.Cascade);
+            builder.HasData(
+                new User
+                {
+                    Id = 1,
+                    Username = "Jake",
+                    Email = "vandekolkjake@gmail.com",
+                    RoleId = 1,
+                    CreatedAt = new DateTime(2026, 1, 6, 0, 0, 0, DateTimeKind.Utc)
+                },
+                new User
+                {
+                    Id = 2,
+                    Username = "Delta",
+                    Email = "deltatheginger@gmail.com",
+                    RoleId = 2,
+                    CreatedAt = new DateTime(2026, 1, 6, 0, 0, 0, DateTimeKind.Utc)
+                },
+                new User
+                {
+                    Id = 3,
+                    Username = "Michmans",
+                    Email = "thediscordmod@gmail.com",
+                    RoleId = 3,
+                    CreatedAt = new DateTime(2026, 1, 6, 0, 0, 0, DateTimeKind.Utc)
+                }
+            );
         }
     }
 

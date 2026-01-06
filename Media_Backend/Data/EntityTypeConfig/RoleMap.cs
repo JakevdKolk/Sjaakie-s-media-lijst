@@ -18,6 +18,13 @@ namespace backend.Data.EntityTypeConfig
                 .WithOne(u => u.Role)
                 .HasForeignKey(u => u.RoleId)
                 .OnDelete(DeleteBehavior.Cascade);
+
+            builder.HasData(
+                new Role { Id = 1, Name = "Admin" },
+                new Role { Id = 2, Name = "User" },
+                new Role { Id = 3, Name = "Moderator" },
+                new Role { Id = 4, Name = "Editor" }
+                );
         }
     }
 }

@@ -11,6 +11,11 @@ namespace backend.Data.EntityTypeConfig
             builder.HasKey(f => new { f.UserId, f.FriendId });
             builder.Property(f => f.CreatedAt)
                 .HasDefaultValueSql("CURRENT_TIMESTAMP");
+            builder.HasData(
+                new Friend { UserId = 1, FriendId = 2 },
+                new Friend { UserId = 1, FriendId = 3 },
+                new Friend { UserId = 2, FriendId = 3 }
+            );
         }
     }
 }

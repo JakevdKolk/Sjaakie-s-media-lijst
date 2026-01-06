@@ -19,6 +19,12 @@ namespace backend.Data.EntityTypeConfig
                 .WithOne(mc => mc.Character)
                 .HasForeignKey(mc => mc.CharacterId)
                 .OnDelete(DeleteBehavior.Cascade);
+
+            builder.HasData(
+                new Character { Id = 1, Name = "Luffy", Description = "Has stage 4 cancer"},
+                new Character { Id = 2, Name = "Guts", Description = "Man is edgy" },
+                new Character { Id = 3, Name = "Penny", Description = "Delta simpt voor haar"}
+            );
         }
     }
 }
