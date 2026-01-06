@@ -10,6 +10,8 @@ namespace Media_Backend.Profiles
         public UserProfile()
         {
             CreateMap<User, UserDto>();
+            CreateMap<CreateUserDto, User>();
+
         }
 
     }
